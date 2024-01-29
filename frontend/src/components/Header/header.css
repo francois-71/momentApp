@@ -1,0 +1,35 @@
+.custom-header {
+  background-color: var(--header-background-color);
+  color: #fff;
+  padding: 10px 0;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  margin: auto;
+}
+.link{
+  color: #fff;
+  text-decoration: none;
+  margin-right: 15px;
+}
+.logo {
+  width: 20px !important;
+}
+
+.moment-logo {
+  width: 50px !important;
+}
+
+.nav-links {
+  display: flex;
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 15px;
+}

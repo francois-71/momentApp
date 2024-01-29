@@ -1,0 +1,84 @@
+/* register.css */
+
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.register-title {
+  text-align: center;
+}
+
+.register-box {
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+.register-form-container {
+  text-align: center;
+}
+
+.register-form {
+  width: 300px;
+  padding: 20px;
+}
+
+.register-title {
+  color: var(--login-register-title);
+}
+
+.form-input::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+.form-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+}
+
+.register-button {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--button-color);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.error-message {
+  margin: auto;
+  color: red;
+  text-align: center;
+  list-style-type: none;
+  width: 250px;
+}
+
+.error-list {
+  padding: auto;
+  width: 250px;
+}
+
+.register-button:hover {
+  background-color: var(
+    --button-color
+  ); /* Set your desired button hover color */
+}

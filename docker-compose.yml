@@ -1,0 +1,52 @@
+version: '3'
+services:
+  db:
+    build:
+      context: ./db
+    env_file:
+      - .env
+    environment:
+      - POSTGRES_DB=${DATABASE_PROD_NAME}
+      - POSTGRES_USER=${DATABASE_PROD_USERNAME}
+      - POSTGRES_PASSWORD=${DATABASE_PROD_PASSWORD}
+      - POSTGRES_HOST=${DATABASE_PROD_HOSTNAME}
+      - POSTGRES_PORT=${DATABASE_PROD_PORT}
+    volumes:
+      - ./init-scripts:/docker-entrypoint-initdb.d
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "${DATABASE_PROD_PORT}:${DATABASE_PROD_PORT}"
+    networks:
+      - my-network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    environment:
+      - DATABASE_PASSWORD=${DATABASE_PROD_PASSWORD}
+      - DATABASE_NAME=${DATABASE_PROD_NAME}
+      - DATABASE_USERNAME=${DATABASE_PROD_USERNAME}
+      - DATABASE_PORT=${DATABASE_PROD_PORT}
+      - DATABASE_HOSTNAME=db
+    depends_on:
+      - db
+    networks:
+      - my-network
+    restart: always
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
