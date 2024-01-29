@@ -89,7 +89,7 @@ const Register: React.FC<RegisterProps> = () => {
               Name
             </label>
             <input
-              placeholder="John Doe"
+              placeholder="John"
               type="text"
               id="name"
               name="name"

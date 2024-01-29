@@ -29,6 +29,7 @@ services:
       - DATABASE_USERNAME=${DATABASE_PROD_USERNAME}
       - DATABASE_PORT=${DATABASE_PROD_PORT}
       - DATABASE_HOSTNAME=db
+      - TOKEN_SECRET=${TOKEN_SECRET}
     depends_on:
       - db
     networks:
