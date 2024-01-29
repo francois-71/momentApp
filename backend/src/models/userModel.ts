@@ -1,5 +1,6 @@
-import { DataTypes, Model } from "sequelize";
+import { DataTypes } from "sequelize";
 import sequelize from "../config/sequelize";
+import bcrypt from "bcrypt";
 
 const User = sequelize.define("user", {
   id: {
@@ -30,7 +31,7 @@ const User = sequelize.define("user", {
       },
       len: {
         args: [4, 250],
-        msg: "Email must be between 8 and 250 characters.",
+        msg: "Email must be between 4 and 250 characters.",
       },
     },
   },
@@ -42,7 +43,7 @@ const User = sequelize.define("user", {
         args: [8, 250],
         msg: "Password must be between 8 and 250 characters.",
       },
-      RegExp(value: string) {
+      containsLetterAndNumber(value: string) {
         if (!value.match(/\d/) || !value.match(/[a-zA-Z]/)) {
           throw new Error(
             "Password must contain at least one letter and one number."
@@ -60,6 +61,21 @@ const User = sequelize.define("user", {
           throw new Error("Age must be between 18 and 99.");
         }
       },
+    },
+  },
+}, {
+  hooks: {
+    beforeCreate: async (user: any) => {
+      // Hash the password before creating the user
+      const hashedPassword = await bcrypt.hash(user.password, 10);
+      user.password = hashedPassword;
+    },
+    beforeUpdate: async (user: any) => {
+      // Hash the password before updating the user, if the password is changed
+      if (user.changed('password')) {
+        const hashedPassword = await bcrypt.hash(user.password, 10);
+        user.password = hashedPassword;
+      }
     },
   },
 });
