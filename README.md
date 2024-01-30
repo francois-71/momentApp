@@ -2,7 +2,7 @@
 
 This project requires certain environment variables to be set in order to run successfully. Follow the steps below to set up the necessary configurations.
 
-Start by creating a **`.env`** file at the root of the project
+Start by creating a **`.env`** file at the root of the project.
 
 ## Database Configuration
 
@@ -20,7 +20,7 @@ For the production environment, make sure to set the following environment varia
 
 Set the following environment variable for token generation and validation:
 
-- **`TOKEN_SECRET`**: Create a JWT (JSON Web Token) and paste it here as the secret key.
+- **`TOKEN_SECRET`**: Create a JWT secret key and paste it here as the secret key.
 
 ## Example:
 
