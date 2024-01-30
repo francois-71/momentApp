@@ -32,3 +32,19 @@ DATABASE_PROD_PORT=5432
 DATABASE_PROD_HOSTNAME=localhost
 
 TOKEN_SECRET=your-jwt-token
+```
+
+## Start the project:
+
+1. **Open a terminal (cmd):**
+
+2. **Navigate to the Project Directory:**
+
+3. **Type the following command to build the Docker images:**
+   ```bash
+   docker-compose build
+   ```
+4. **Once the build is done, type the following command to run the containers:**
+   ```bash
+   docker-compose up -d
+   ```
