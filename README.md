@@ -2,6 +2,8 @@
 
 This project requires certain environment variables to be set in order to run successfully. Follow the steps below to set up the necessary configurations.
 
+Start by creating a **.env** file at the root of the project
+
 ## Database Configuration
 
 ### Production Environment
